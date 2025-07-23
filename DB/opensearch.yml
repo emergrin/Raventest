@@ -1,0 +1,20 @@
+cluster.name: opensearch-cluster
+discovery.seed_hosts:
+  - 10.0.1.10  # ingest1
+  - 10.0.1.11  # ingest2
+  - 10.0.1.12  # data1
+  - 10.0.1.13  # cold1
+
+cluster.initial_cluster_manager_nodes:
+  - ingest1
+  - ingest2
+
+network.host: 0.0.0.0
+http.port: 9200
+transport.port: 9300
+
+node.attr.zone: zone-a
+node.name: cold1
+node.roles: [data_cold]
+path.data: /var/lib/opensearch
+path.logs: /var/log/opensearch
