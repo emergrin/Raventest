@@ -5,6 +5,11 @@ backend default {
     .port = "8443";
 }
 
+backend default_normal {
+    .host = "10.0.0.9";
+    .port = "8080";
+}
+
 sub vcl_recv {
     if (req.http.Authorization || req.http.Cookie) {
         return (pass);
